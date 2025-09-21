@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LifeSaver - Blood Donation Center</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">-->
+</head>
+<body>
+    
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>LifeSaver</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="find-doner.html" class="nav-link">Find blood donors</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#services" class="nav-link">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#donate" class="nav-link">Donate</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Save Lives Through Blood Donation</h1>
+            <p class="hero-subtitle">Your donation can make a difference in someone's life. Join us in our mission to save lives.</p>
+            <div class="hero-buttons">
+                <a href="#donate" class="btn btn-primary">
+                    <i class="fas fa-tint"></i> Donate Now
+                </a>
+                <button class="btn btn-secondary" onclick="scrollToSection('about')">
+                    <i class="fas fa-info-circle"></i> Learn More
+                </button>
+            </div>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <h3>5+</h3>
+                <p>Lives Saved</p>
+            </div>
+            <div class="stat-item">
+                <h3>10+</h3>
+                <p>Donors</p>
+            </div>
+            <div class="stat-item">
+                <h3>5+</h3>
+                <p>Hospitals</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Blood Donation</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Why Blood Donation Matters</h3>
+                    <p>Blood donation is a simple, safe way to help save lives. Every two seconds, someone in the United States needs blood. Your donation can help save up to three lives.</p>
+                    <div class="benefits">
+                        <div class="benefit-item">
+                            <i class="fas fa-heart"></i>
+                            <h4>Heart Health</h4>
+                            <p>Regular donation helps maintain healthy iron levels</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <h4>Free Health Check</h4>
+                            <p>Get a mini physical examination before donation</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-users"></i>
+                            <h4>Community Impact</h4>
+                            <p>Make a direct impact on your community</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Blood Donation">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h3>Whole Blood Donation</h3>
+                    <p>Donate whole blood to help patients in emergency situations, surgeries, and cancer treatments.</p>
+                    <button class="btn btn-outline">Learn More</button>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-platelets"></i>
+                    </div>
+                    <h3>Platelet Donation</h3>
+                    <p>Platelet donations help cancer patients and those with blood disorders.</p>
+                    <button class="btn btn-outline">Learn More</button>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-droplet"></i>
+                    </div>
+                    <h3>Plasma Donation</h3>
+                    <p>Plasma donations help burn victims and patients with clotting disorders.</p>
+                    <button class="btn btn-outline">Learn More</button>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile Blood Drives</h3>
+                    <p>We bring our donation services to your workplace, school, or community center.</p>
+                    <button class="btn btn-outline">Schedule Drive</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Form Section -->
+    <section id="donate" class="donate">
+        <div class="container">
+            <h2 class="section-title">Schedule Your Donation</h2>
+            <div class="donation-form-container">
+                <form id="donationForm" class="donation-form">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bloodType">Blood Type *</label>
+                        <select id="bloodType" name="bloodType" required>
+                            <option value="">Select Blood Type</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="donationType">Donation Type *</label>
+                        <select id="donationType" name="donationType" required>
+                            <option value="">Select Donation Type</option>
+                            <option value="whole">Whole Blood</option>
+                            <option value="platelets">Platelets</option>
+                            <option value="plasma">Plasma</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Preferred Date *</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Preferred Time *</label>
+                        <select id="time" name="time" required>
+                            <option value="">Select Time</option>
+                            <option value="09:00">9:00 AM</option>
+                            <option value="10:00">10:00 AM</option>
+                            <option value="11:00">11:00 AM</option>
+                            <option value="12:00">12:00 PM</option>
+                            <option value="13:00">1:00 PM</option>
+                            <option value="14:00">2:00 PM</option>
+                            <option value="15:00">3:00 PM</option>
+                            <option value="16:00">4:00 PM</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Any existing health issues? </label>
+                        <textarea id="message" name="message" rows="3"  placeholder="Please specify any health issues"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-large">
+                        <i class="fas fa-paper-plane"></i> Schedule Donation
+                    </button>
+                </form>
+                <div class="donation-info">
+                    <h3>Before You Donate</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Be at least 17 years old</li>
+                        <li><i class="fas fa-check"></i> Weigh at least 55kg</li>
+                        <li><i class="fas fa-check"></i> Be in good health</li>
+                        <li><i class="fas fa-check"></i> Eat a healthy meal before donation</li>
+                        <li><i class="fas fa-check"></i> Bring a valid ID</li>
+                    </ul>
+                    <div class="emergency-contact">
+                        <h4>Emergency Contact</h4>
+                        <p><i class="fas fa-phone"></i> +91 988774333049</p>
+                        <p><i class="fas fa-envelope"></i> emergency@lifesaver.org</p>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Address</h4>
+                            <p>AJ boys hostel manglore 5075006</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+91 988774333049</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>donations@lifesaver.org</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Hours</h4>
+                            <p>Monday - Friday: 8AM - 6PM<br>Saturday: 9AM - 4PM<br>Sunday: Closed</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="contactName">Name</label>
+                            <input type="text" id="contactName" name="contactName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail">Email</label>
+                            <input type="email" id="contactEmail" name="contactEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactSubject">Subject</label>
+                            <input type="text" id="contactSubject" name="contactSubject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactMessage">Message</label>
+                            <textarea id="contactMessage" name="contactMessage" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-heartbeat"></i>
+                        <span>LifeSaver</span>
+                    </div>
+                    <p>Dedicated to saving lives through blood donation. Join our mission to help those in need.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#donate">Donate</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Whole Blood Donation</a></li>
+                        <li><a href="#">Platelet Donation</a></li>
+                        <li><a href="#">Plasma Donation</a></li>
+                        <li><a href="#">Mobile Blood Drives</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Blood Donation Updates</h4>
+                    <p>Subscribe to get our latest updates about blood donation.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email">
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 LifeSaver Blood Donation Center. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script type="module">
+        // Import Firebase SDKs
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-analytics.js";
+        import { getDatabase, ref, push, set, onValue } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-database.js";
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDNseG-NsRwrZkJkH6Cgowv3maJDpY35M8",
+            authDomain: "blood-donation-eb49b.firebaseapp.com",
+            databaseURL: "https://blood-donation-eb49b-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "blood-donation-eb49b",
+            storageBucket: "blood-donation-eb49b.firebasestorage.app",
+            messagingSenderId: "408241230599",
+            appId: "1:408241230599:web:8f43499a7f14f318cd2ba2",
+            measurementId: "G-5NCV954ETZ"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const database = getDatabase(app);
+
+        // Handle Donation Form Submission
+        const donationForm = document.getElementById("donationForm");
+        donationForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            // Get form values
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const phone = document.getElementById("phone").value;
+            const bloodType = document.getElementById("bloodType").value;
+            const donationType = document.getElementById("donationType").value;
+            const date = document.getElementById("date").value;
+            const time = document.getElementById("time").value;
+            const message = document.getElementById("message").value;
+
+            // Push data to Firebase
+            const donorsRef = ref(database, "donors");
+            const newDonorRef = push(donorsRef);
+
+            set(newDonorRef, {
+                name,
+                email,
+                phone,
+                bloodType,
+                donationType,
+                date,
+                time,
+                message
+            })
+                .then(() => {
+                    alert("Donation scheduled successfully!");
+                    donationForm.reset();
+                })
+                .catch((error) => {
+                    console.error("Error saving data: ", error);
+                });
+        });
+
+        // Fetch and Display All Donors in Real-Time
+        const donorTableBody = document.getElementById("donorTableBody");
+        const donorsRef = ref(database, "donors");
+
+        onValue(donorsRef, (snapshot) => {
+            donorTableBody.innerHTML = ""; // Clear table before re-rendering
+            snapshot.forEach((childSnapshot) => {
+                const donor = childSnapshot.val();
+                const row = `
+                    <tr>
+                        <td>${donor.name}</td>
+                        <td>${donor.email}</td>
+                        <td>${donor.phone}</td>
+                        <td>${donor.bloodType}</td>
+                        <td>${donor.donationType}</td>
+                        <td>${donor.date}</td>
+                        <td>${donor.time}</td>
+                        <td>${donor.message || "N/A"}</td>
+                    </tr>
+                `;
+                donorTableBody.innerHTML += row;
+            });
+        });
+    </script>
+</body>
+</html>

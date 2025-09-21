@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Blood Donors</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>LifeSaver</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="#donate" class="nav-link">Donate</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Find Donor Section -->
+    <section class="find-donor-section">
+        <div class="container">
+            <h2 class="section-title">Find Blood Donors</h2>
+            <div class="filter-group">
+                <label for="bloodGroup">Select Blood Group:</label>
+                <select id="bloodGroup">
+                    <option value="">All</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                </select>
+                <button class="btn btn-primary" id="searchBtn"><i class="fas fa-search"></i> Search</button>
+            </div>
+            <div id="donorCards" class="donor-cards">
+                <!-- Donor cards will be inserted here by JS -->
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Firebase Donor Data Script -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDNseG-NsRwrZkJkH6Cgowv3maJDpY35M8",
+            authDomain: "blood-donation-eb49b.firebaseapp.com",
+            databaseURL: "https://blood-donation-eb49b-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "blood-donation-eb49b",
+            storageBucket: "blood-donation-eb49b.firebasestorage.app",
+            messagingSenderId: "408241230599",
+            appId: "1:408241230599:web:8f43499a7f14f318cd2ba2",
+            measurementId: "G-5NCV954ETZ"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+
+        const donorCards = document.getElementById("donorCards");
+        const bloodGroupSelect = document.getElementById("bloodGroup");
+        const searchBtn = document.getElementById("searchBtn");
+
+        function renderDonors(snapshot, filterGroup) {
+            donorCards.innerHTML = "";
+            let found = false;
+            snapshot.forEach((childSnapshot) => {
+                const donor = childSnapshot.val();
+                if (!filterGroup || donor.bloodType === filterGroup) {
+                    found = true;
+                    const card = `
+                        <div class="donor-card">
+                            <h3>${donor.name}</h3>
+                            <p><strong>Email:</strong> ${donor.email}</p>
+                            <p><strong>Phone:</strong> ${donor.phone}</p>
+                            <p><strong>Blood Group:</strong> ${donor.bloodType}</p>
+                            <p><strong>Donation Type:</strong> ${donor.donationType}</p>
+                            <p><strong>Preferred Date:</strong> ${donor.date}</p>
+                            <p><strong>Preferred Time:</strong> ${donor.time}</p>
+                            <p><strong>Health Issues:</strong> ${donor.message || "N/A"}</p>
+                        </div>
+                    `;
+                    donorCards.innerHTML += card;
+                }
+            });
+            if (!found) {
+                donorCards.innerHTML = "<p>No donors found for selected blood group.</p>";
+            }
+        }
+
+        function fetchDonors() {
+            const donorsRef = ref(database, "donors");
+            const selectedGroup = bloodGroupSelect.value;
+            onValue(donorsRef, (snapshot) => {
+                renderDonors(snapshot, selectedGroup);
+            }, { onlyOnce: true });
+        }
+
+        searchBtn.addEventListener("click", fetchDonors);
+    </script>
+    <style>
+        .donor-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin-top: 32px;
+        }
+        .donor-card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: 24px;
+            width: 300px;
+            font-family: 'Poppins', sans-serif;
+        }
+        .donor-card h3 {
+            margin-top: 0;
+            color: #d32f2f;
+        }
+        .donor-card p {
+            margin: 8px 0;
+            font-size: 15px;
+        }
+    </style>
+</body>
+</html>
